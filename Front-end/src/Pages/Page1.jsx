@@ -164,7 +164,7 @@ export default function App() {
             </group>
             <hemisphereLight intensity={0.2} />
             <ambientLight intensity={0.5} />
-            <Environment preset="warehouse" />
+            
             <Zoom />
             <Text
               position={[0, -5, -50]}
