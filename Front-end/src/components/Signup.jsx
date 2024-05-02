@@ -508,7 +508,7 @@ export default function SignUp({ Setleftside, LeftSide, currentModel }) {
                       marginLeft: "2px",
                     }}
                     onClick={() => {
-                      navigate("/Page2");
+                      navigate("/Login");
                     }}
                   >
                     Login

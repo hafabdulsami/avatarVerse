@@ -62,6 +62,12 @@ app.post("/addData", function (req, res) {
   );
 });
 
+app.post("/Test",function(req,res){
+  console.log(req.body.data)
+  res.send(true);
+})
+
+
 app.post("/CheckData", function (req, res) {
   //console.log(req.body.email);
   var Random = generateRandomString();

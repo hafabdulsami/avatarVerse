@@ -123,6 +123,9 @@ export default function Login() {
                   width: "100%",
                 }}
                 variant="contained"
+                onClick={()=>{
+                  navigate("/dashBoard")
+                }}
               >
                 Login
               </Button>

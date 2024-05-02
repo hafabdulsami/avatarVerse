@@ -20,6 +20,7 @@ function App() {
       <Route path="/" element={<Page1 />} />
       <Route path="/Login" element={<Page2 />} />
       <Route path="/Signup" element={<Page3 />} />
+      <Route path="/dashboard" element={<Sidebar />} />
     </Routes>
   );
 }
