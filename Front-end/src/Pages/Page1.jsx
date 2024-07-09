@@ -100,110 +100,108 @@ export default function App() {
   return (
     <>
       <Fragment>
-        <Canvas
-          dpr={[1, 1.5]}
-          shadows
-          camera={{ position: [0, 0, 100], fov: 22 }}
-        >
-          <fog attach="fog" args={["rgb(255, 252, 252)", 100, 150]} />
-          <color attach="background" args={["#E74646"]} />
-          <spotLight
-            penumbra={1}
-            angle={1}
-            castShadow
-            position={[10, 60, -5]}
-            intensity={8}
-            shadow-mapSize={[512, 512]}
-          />
-          <Suspense fallback={null}>
-            <group position={[2.5, -12, 0]}>
-              <Spheres />
+        <div style={{ position: "relative", height: "100%" }}>
+          <Canvas
+            dpr={[1, 1.5]}
+            shadows
+            camera={{ position: [0, 0, 100], fov: 22 }}
+          >
+            <fog attach="fog" args={["rgb(255, 252, 252)", 100, 150]} />
+            <color attach="background" args={["#E74646"]} />
+            <spotLight
+              penumbra={1}
+              angle={1}
+              castShadow
+              position={[10, 60, -5]}
+              intensity={8}
+              shadow-mapSize={[512, 512]}
+            />
+            <Suspense fallback={null}>
+              <group position={[2.5, -12, 0]}>
+                <Spheres />
 
-              <F6 scale={[10, 10, 10]} rotation={[0, -1, 0]} />
+                <F6 scale={[10, 10, 10]} rotation={[0, -1, 0]} />
 
-              <mesh
-                rotation-x={-Math.PI / 2}
-                position={[0, 0.01, 0]}
-                scale={[200, 200, 200]}
-                receiveShadow
-                renderOrder={100000}
+                <mesh
+                  rotation-x={-Math.PI / 2}
+                  position={[0, 0.01, 0]}
+                  scale={[200, 200, 200]}
+                  receiveShadow
+                  renderOrder={100000}
+                >
+                  <planeGeometry />
+                  <shadowMaterial transparent color="#251005" opacity={0.4} />
+                </mesh>
+              </group>
+
+              <group position={[-24, -12, 10]}>
+                <F7 scale={[10, 10, 10]} rotation={[0, 1, 0]} />
+
+                <mesh
+                  rotation-x={-Math.PI / 2}
+                  position={[0, 0.01, 0]}
+                  scale={[200, 200, 200]}
+                  receiveShadow
+                  renderOrder={100000}
+                >
+                  <planeGeometry />
+                  <shadowMaterial transparent color="#251005" opacity={0.4} />
+                </mesh>
+              </group>
+
+              <group position={[24, -12, -0]}>
+                <F5 scale={[10, 10, 10]} rotation={[0, 0, 0]} />
+
+                <mesh
+                  rotation-x={-Math.PI / 2}
+                  position={[0, 0.01, 0]}
+                  scale={[200, 200, 200]}
+                  receiveShadow
+                  renderOrder={100000}
+                >
+                  <planeGeometry />
+                  <shadowMaterial transparent color="#251005" opacity={0.4} />
+                </mesh>
+              </group>
+              <hemisphereLight intensity={0.2} />
+              <ambientLight intensity={0.5} />
+
+              <Zoom />
+              <Text
+                position={[0, -5, -50]}
+                letterSpacing={-0.05}
+                font={Poppins}
+                fontSize={17}
+                color="#FFE5CA"
+                material-toneMapped={false}
+                material-fog={false}
+                anchorX="center"
+                anchorY="middle"
               >
-                <planeGeometry />
-                <shadowMaterial transparent color="#251005" opacity={0.4} />
-              </mesh>
-            </group>
-
-            <group position={[-24, -12, 10]}>
-              <F7 scale={[10, 10, 10]} rotation={[0, 1, 0]} />
-
-              <mesh
-                rotation-x={-Math.PI / 2}
-                position={[0, 0.01, 0]}
-                scale={[200, 200, 200]}
-                receiveShadow
-                renderOrder={100000}
-              >
-                <planeGeometry />
-                <shadowMaterial transparent color="#251005" opacity={0.4} />
-              </mesh>
-            </group>
-
-            <group position={[24, -12, -0]}>
-              <F5 scale={[10, 10, 10]} rotation={[0, 0, 0]} />
-
-              <mesh
-                rotation-x={-Math.PI / 2}
-                position={[0, 0.01, 0]}
-                scale={[200, 200, 200]}
-                receiveShadow
-                renderOrder={100000}
-              >
-                <planeGeometry />
-                <shadowMaterial transparent color="#251005" opacity={0.4} />
-              </mesh>
-            </group>
-            <hemisphereLight intensity={0.2} />
-            <ambientLight intensity={0.5} />
-            
-            <Zoom />
-            <Text
-              position={[0, -5, -50]}
-              letterSpacing={-0.05}
-              font={Poppins}
-              fontSize={19}
-              color="#FFE5CA"
-              material-toneMapped={false}
-              material-fog={false}
-              anchorX="center"
-              anchorY="middle"
-            >
-              {`Avatar Verse`}
-            </Text>
-            <Stars />
-          </Suspense>
-        </Canvas>
+                {`Game Gallery`}
+              </Text>
+              <Stars />
+            </Suspense>
+          </Canvas>
+        </div>
         <Loader />
       </Fragment>
 
-
-
-    
-        <Link to="/Login">
-          <a
-            style={{
-              position: "absolute",
-              bottom: 40,
-              left: 90,
-              fontSize: "15px",
-              color: "#FFE5CA",
-              textDecoration: "none",
-              cursor: "pointer",
-            }}
-          >
-            Continue
-          </a>
-        </Link>
-
+      <Link to="/Login">
+        <a
+          style={{
+            position: "absolute",
+            bottom: 40,
+            left: 90,
+            fontSize: "15px",
+            color: "#FFE5CA",
+            textDecoration: "none",
+            cursor: "pointer",
+          }}
+        >
+          Continue
+        </a>
+      </Link>
     </>
   );
 }
